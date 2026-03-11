@@ -1,0 +1,219 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orb1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124,106,255,0.15) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.orb2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(77,255,166,0.08) 0%, transparent 70%);
+  bottom: -150px;
+  right: -100px;
+  animation: float2 10s ease-in-out infinite;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(124,106,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,106,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(30px, 20px) scale(1.05); }
+}
+@keyframes float2 {
+  0%, 100% { transform: translate(0,0) scale(1); }
+  50% { transform: translate(-20px, -30px) scale(1.05); }
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 80px rgba(124,106,255,0.1), 0 40px 80px rgba(0,0,0,0.5);
+  animation: cardIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.logoIcon {
+  font-size: 28px;
+  color: var(--accent);
+  filter: drop-shadow(0 0 12px var(--accent));
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--text-primary);
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  margin-bottom: 32px;
+  letter-spacing: 0.05em;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-primary);
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.activeTab {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.input {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text-primary);
+  font-size: 15px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,106,255,0.15);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.error {
+  background: rgba(255,77,106,0.1);
+  border: 1px solid rgba(255,77,106,0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.submitBtn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+}
+
+.submitBtn:hover {
+  background: var(--accent-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(124,106,255,0.4);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
