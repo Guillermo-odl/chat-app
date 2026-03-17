@@ -117,3 +117,4 @@ Open **http://localhost:5173** in your browser.
 | Database | MongoDB + Mongoose |
 | Auth | JWT + bcryptjs |
 | Real-time | Socket.IO Server |
+Contributors: Chris Chen, Guillermo Orozco De Leon
